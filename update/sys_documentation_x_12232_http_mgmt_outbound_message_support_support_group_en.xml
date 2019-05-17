@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="support_group" label="Support Group" language="en" table="x_12232_http_mgmt_outbound_message_support">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>support_group</element>
+            <help/>
+            <hint/>
+            <label>Support Group</label>
+            <language>en</language>
+            <name>x_12232_http_mgmt_outbound_message_support</name>
+            <plural>Support Groups</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-05-17 20:08:07</sys_created_on>
+            <sys_id>a442eca8dba5b3001b5cf7fdbf9619ac</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Support Group</sys_name>
+            <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+            <sys_update_name>sys_documentation_x_12232_http_mgmt_outbound_message_support_support_group_en</sys_update_name>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-05-17 20:08:07</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

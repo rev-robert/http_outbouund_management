@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="" label="Outbound Message Support" language="en" table="x_12232_http_mgmt_outbound_message_support">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element/>
+            <help/>
+            <hint/>
+            <label>Outbound Message Support</label>
+            <language>en</language>
+            <name>x_12232_http_mgmt_outbound_message_support</name>
+            <plural>Outbound Message Supports</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-05-17 20:05:06</sys_created_on>
+            <sys_id>5091e8a8dba5b3001b5cf7fdbf961965</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Outbound Message Support</sys_name>
+            <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+            <sys_update_name>sys_documentation_x_12232_http_mgmt_outbound_message_support__en</sys_update_name>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-05-17 20:05:06</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

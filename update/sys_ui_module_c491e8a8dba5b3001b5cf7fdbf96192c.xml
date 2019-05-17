@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="System Web Services">eac9f7209f12310041a496fcc67fcfef</application>
+        <filter/>
+        <name>Outbound Message Supports</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_12232_http_mgmt.outbound_message_support_admin</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>robert.polickoski</sys_created_by>
+        <sys_created_on>2019-05-17 20:05:05</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c491e8a8dba5b3001b5cf7fdbf96192c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Outbound Message Supports</sys_name>
+        <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+        <sys_update_name>sys_ui_module_c491e8a8dba5b3001b5cf7fdbf96192c</sys_update_name>
+        <sys_updated_by>robert.polickoski</sys_updated_by>
+        <sys_updated_on>2019-05-17 20:05:05</sys_updated_on>
+        <table>x_12232_http_mgmt_outbound_message_support</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+</record_update>
