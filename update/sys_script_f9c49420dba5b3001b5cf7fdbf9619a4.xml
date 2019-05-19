@@ -36,11 +36,25 @@
 	var parmFunction = '';
 	var queue = '';
 	
-	var isREST = isRESTFunction(current.url.toString(), parmMessage, parmFunction);
-	if (!isREST) {
-		var isSOAP = isSOAPFunction(current.url.toString(), parmMessage, parmFunction);
-	}  // if (!isREST)
-
+	var util = new x_12232_http_mgmt.utilHTTPOutboundManagement();
+	
+	var grRESTMessageFunction = util.getRESTFunction(current.url.toString());
+	if (grRESTMessageFunction.next()) {
+		parmFunction = grRESTMessageFunction.getLink();
+		var grRESTMessage = new GlideRecord('sys_rest_message');
+		grRESTMessage.get(grRESTMessageFunction.rest_message.toString());
+		parmMessage = grRESTMessage.getLink();
+	}  // if (grRESTMessageFunction.next())
+	else {
+		var grSOAPMessageFunction = util.getSOAPFunction(current.url.toString());
+		if (grSOAPMessageFunction.next()) {
+			parmFunction = grSOAPMessageFunction.getLink();
+			var grSOAPMessage = new GlideRecord('sys_soap_message');
+			grSOAPMessage.get(grSOAPMessageFunction.soap_message.toString());
+			parmMessage = grSOAPMessage.getLink();
+		}  // if (grSOAPMessageFunction.next())
+	}  // else if (grRESTMessageFunction.next())
+	
 	gs.eventQueue('x_12232_http_mgmt.http_outbound.failure', current, parmMessage, parmFunction, queue);
 
 })(current, previous);
@@ -69,6 +83,7 @@ function isSOAPFunction (urlEndpoint, parmMessage, parmFunction) {
 	var boolIsSOAP= false;
 	var grSOAPMessageFunction = new GlideRecord('sys_soap_message_function');
 	grSOAPMessageFunction.addQuery('soap_endpoint', urlEndpoint);
+	grSOAPMessageFunction.query();
 	if (grSOAPMessageFunction.next()) {
 		parmFunction = grSOAPMessageFunction.getLink();
 		var grSOAPMessage = new GlideRecord('sys_soap_message');
@@ -84,7 +99,7 @@ function isSOAPFunction (urlEndpoint, parmMessage, parmFunction) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f9c49420dba5b3001b5cf7fdbf9619a4</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Generate Failure Event</sys_name>
         <sys_overrides/>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
@@ -92,7 +107,7 @@ function isSOAPFunction (urlEndpoint, parmMessage, parmFunction) {
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
         <sys_update_name>sys_script_f9c49420dba5b3001b5cf7fdbf9619a4</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-05-17 19:56:48</sys_updated_on>
+        <sys_updated_on>2019-05-19 15:02:51</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

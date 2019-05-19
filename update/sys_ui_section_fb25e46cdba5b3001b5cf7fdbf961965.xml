@@ -84,6 +84,34 @@
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>cmdb_ci</element>
+            <position>6</position>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-05-19 14:44:59</sys_created_on>
+            <sys_id>e67bad89db6df3001b5cf7fdbf96192f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_12232_http_mgmt_outbound_message_support" sys_domain="global" view="Default view">fb25e46cdba5b3001b5cf7fdbf961965</sys_ui_section>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-05-19 14:44:59</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>cmdb_ci_service</element>
+            <position>7</position>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-05-19 14:45:55</sys_created_on>
+            <sys_id>04bbad89db6df3001b5cf7fdbf9619bd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_12232_http_mgmt_outbound_message_support" sys_domain="global" view="Default view">fb25e46cdba5b3001b5cf7fdbf961965</sys_ui_section>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-05-19 14:45:55</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>

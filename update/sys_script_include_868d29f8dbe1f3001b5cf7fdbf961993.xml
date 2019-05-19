@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_12232_http_mgmt.utilHTTPOutboundManagement</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>utilHTTPOutboundManagement</name>
+        <script><![CDATA[var utilHTTPOutboundManagement = Class.create();
+utilHTTPOutboundManagement.prototype = {
+	initialize: function(grHTTPOutboundLog) {
+		if (grHTTPOutboundLog != undefined) {
+			this.grLog = grHTTPOutboundLog;
+		}  // if (grHTTPOutboundLog != undefined)
+	},
+	
+	setLog: function (grHTTPOutboundLog) {
+		this.grLog = grHTTPOutboundLog;
+	},  // setLog
+	
+	getPreviousEvent: function (grHTTPOutboundLog, eventCurrent) {
+		var grPreviousEvent = new GlideRecord('sysevent');
+		grPreviousEvent.addQuery('name', eventCurrent.name.toString());
+		grPreviousEvent.addQuery('parm1', eventCurrent.parm1.toString());
+		grPreviousEvent.addQuery('parm2', eventCurrent.parm2.toString());
+		grPreviousEvent.addEncodedQuery("sys_created_on<javascript:gs.dateGenerate('" + evenCurrent.sys_created_on.getDisplayValue() + "')");
+		grPreviousEvent.orderByDesc();
+		grPreviousEvent.setLimit(1);
+		grPreviousEvent.query();
+		return grPreviousEvent;
+	},  //  getPreviousEvent
+	
+	getRESTFunction: function (urlEndpoint) {
+		var boolIsREST = false;
+		var grRESTMessageFunction = new GlideRecord('sys_rest_message_fn');
+		grRESTMessageFunction.addQuery('rest_endpoint', urlEndpoint);
+		grRESTMessageFunction.query();
+		return grRESTMessageFunction;
+	},  // getRESTFunction
+	
+	getSOAPFunction: function (urlEndpoint) {
+		var boolIsSOAP= false;
+		var grSOAPMessageFunction = new GlideRecord('sys_soap_message_function');
+		grSOAPMessageFunction.addQuery('soap_endpoint', urlEndpoint);
+		grSOAPMessageFunction.query();
+		return grSOAPMessageFunction;
+	},  // getSOAPFunction
+	
+	getMessageSupport: function (sidMessage) {
+		var grMessageSupport = new GlideRecord('x_12232_http_mgmt_outbound_message_support');
+		grMessageSupport.addQuery('message', sidMessage);
+		grMessageSupport.query();
+		return grMessageSupport;
+	},  // getMessageSupport
+	
+	type: 'utilHTTPOutboundManagement'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>robert.polickoski</sys_created_by>
+        <sys_created_on>2019-05-18 20:18:36</sys_created_on>
+        <sys_id>868d29f8dbe1f3001b5cf7fdbf961993</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>utilHTTPOutboundManagement</sys_name>
+        <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+        <sys_update_name>sys_script_include_868d29f8dbe1f3001b5cf7fdbf961993</sys_update_name>
+        <sys_updated_by>robert.polickoski</sys_updated_by>
+        <sys_updated_on>2019-05-19 15:07:01</sys_updated_on>
+    </sys_script_include>
+</record_update>
