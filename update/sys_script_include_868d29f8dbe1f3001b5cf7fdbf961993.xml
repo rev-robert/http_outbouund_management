@@ -38,6 +38,12 @@ utilHTTPOutboundManagement.prototype = {
 		return grRESTMessageFunction;
 	},  // getRESTFunction
 	
+	getRESTMessage: function (sidRESTMessage) {
+		var grRESTMessage = new GlideRecord('sys_rest_message');
+		grRESTMessage.get(sidRESTMessage);
+		return grRESTMessage;
+	},  // getRestMessage
+	
 	getSOAPFunction: function (urlEndpoint) {
 		var boolIsSOAP= false;
 		var grSOAPMessageFunction = new GlideRecord('sys_soap_message_function');
@@ -46,6 +52,12 @@ utilHTTPOutboundManagement.prototype = {
 		return grSOAPMessageFunction;
 	},  // getSOAPFunction
 	
+	getSOAPMessage: function (sidSOAPMessage) {
+		var grSOAPMessage = new GlideRecord('sys_soap_message');
+		grSOAPMessage.get(sidSOAPMessage);
+		return grSOAPMessage;
+	},
+	
 	getMessageSupport: function (sidMessage) {
 		var grMessageSupport = new GlideRecord('x_12232_http_mgmt_outbound_message_support');
 		grMessageSupport.addQuery('message', sidMessage);
@@ -53,19 +65,60 @@ utilHTTPOutboundManagement.prototype = {
 		return grMessageSupport;
 	},  // getMessageSupport
 	
+	generateIncident: function (grHTTPOutboundLog, event) {
+		var grIncident = new GlideRecord('incident');
+		grIncident.initialize();
+		var txtShortDescription = 'HTTP Outbound Failure:  ';
+		var txtDescription = 'There has been an HTTP Outbound Failure:' + '\n';
+		txtDescription += '\t' + 'Request Status:  ' + grHTTPOutboundLog.response_status.getDisplayValue() + '\n';
+		txtDescription += '\t' + 'Request Headers:  ' + grHTTPOutboundLog.request_headers.getDisplayValue() + '\n';
+		txtDescription += '\t' + 'Request Body:  ' + grHTTPOutboundLog.request_body.getDisplayValue() + '\n';
+		txtDescription += '\t' + 'Response Headers:  ' + grHTTPOutboundLog.response_headers.getDisplayValue() + '\n';
+		txtDescription += '\t' + 'Response Body:  ' + grHTTPOutboundLog.response_body.getDisplayValue() + '\n';
+		txtDescription += '\t' + 'Response Time:  ' + grHTTPOutboundLog.response_time.getDisplayValue() + '\n';
+		var grRESTMessageFunction = util.getRESTFunction(current.url.toString());
+		if (grRESTMessageFunction.next()) {
+			txtShortDescription += grRESTMessageFunction.function_name.toString();
+			txtDescription += '\n' + 'REST Message Funtion URL:  ' + grRESTMessageFunction.getLink() + '\n';
+			sidMessage = grRESTMessageFunction.rest_message.toString();
+			var grRESTMessage = this.getRESTMessage(sidMessage);
+			txtDescription += '\n' + 'REST Message URL:  ' + grRESTMessage.getLink() + '\n';
+		}  // if (grRESTMessageFunction.next())
+		else {
+			var grSOAPMessageFunction = util.getSOAPFunction(current.url.toString());
+			if (grSOAPMessageFunction.next()) {
+				txtShortDescription += grSOAPMessageFunction.function_name.toString();
+				txtDescription += '\n' + 'SOAP Message Funtion URL:  ' + grSOAPMessageFunction.getLink() + '\n';
+				sidMessage = grSOAPMessageFunction.soap_message.toString();
+				var grSOAPMessage = this.getSOAPMessage(sidMessage);
+				txtDescription += '\n' + 'SOAP Message URL:  ' + grSOAPMessage.getLink() + '\n';
+			}  // if (grSOAPMessageFunction.next())
+		}  // else if (grRESTMessageFunction.next())
+		if (sidMessage != '') {
+			var grMessageSupport = util.getMessageSupport(sidMessage);
+			if (grMessageSupport.next()) {
+				grIncident.cmdb_ci = grMessageSupport.cmdb_ci.toString();
+				grIncident.business_service = grMessageSupport.cmdb_ci_service.toString();
+				grIncident.assignment_group = grMessageSupport.support_group.toString();
+			}  // if (grMessageSupport.next())
+		}  // if (sidMessage != '')
+		var sidIncident = grIncident.insert();
+		return grIncident;
+	},  // generateIncident
+	
 	type: 'utilHTTPOutboundManagement'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>robert.polickoski</sys_created_by>
         <sys_created_on>2019-05-18 20:18:36</sys_created_on>
         <sys_id>868d29f8dbe1f3001b5cf7fdbf961993</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>utilHTTPOutboundManagement</sys_name>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
         <sys_update_name>sys_script_include_868d29f8dbe1f3001b5cf7fdbf961993</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-05-19 15:07:01</sys_updated_on>
+        <sys_updated_on>2019-05-19 15:45:46</sys_updated_on>
     </sys_script_include>
 </record_update>
