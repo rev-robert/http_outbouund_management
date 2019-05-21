@@ -15,10 +15,7 @@
         <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition table="sys_outbound_http_log">response_status&gt;199^response_status&lt;300^EQ<item endquery="false" field="response_status" goto="false" newquery="false" operator="&gt;" or="false" value="199"/>
-            <item endquery="false" field="response_status" goto="false" newquery="false" operator="&lt;" or="false" value="300"/>
-            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
-        </filter_condition>
+        <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
         <name>Generate Failure Event</name>
@@ -31,32 +28,52 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	var logMsg = 'Generate Failure Event' + '\n';
 	
 	var parmMessage = '';
 	var parmFunction = '';
 	var queue = '';
+	try {
+		logMsg += 'current.response_status = ' + current.response_status.toString() + '; (current.response_status < 200) = ' + (current.response_status < 200) + '; (current.response_status > 299) = ' + (current.response_status > 299) + '; ((current.response_status < 200) || (current.response_status > 299)) = ' + ((current.response_status < 200) || (current.response_status > 299)) + '\n';
+		if ((current.response_status < 200) || (current.response_status > 299)) {
+			
+			var util = new x_12232_http_mgmt.utilHTTPOutboundManagement();
+			logMsg += 'util (x_12232_http_mgmt.utilHTTPOutboundManagement) initialized' + '\n';
+			var grRESTMessageFunction = util.getRESTFunction(current.url.toString());
+			logMsg += 'util.getRESTFunction(' + current.url.toString() + ') invoked' + '\n';
+			if (grRESTMessageFunction.next()) {
+				logMsg += 'grRESTMessageFunction.next() = true' + '\n';
+				parmFunction = grRESTMessageFunction.getLink();
+				logMsg += 'parmFunction = ' + parmFunction + '\n';
+				var grRESTMessage = new GlideRecord('sys_rest_message');
+				grRESTMessage.get(grRESTMessageFunction.rest_message.toString());
+				parmMessage = grRESTMessage.getLink();
+				logMsg += 'parmMessage = ' + parmMessage + '\n';
+			}  // if (grRESTMessageFunction.next())
+			else {
+				var grSOAPMessageFunction = util.getSOAPFunction(current.url.toString());
+				if (grSOAPMessageFunction.next()) {
+					logMsg += 'grSOAPMessageFunction.next() = true' + '\n';
+					parmFunction = grSOAPMessageFunction.getLink();
+					logMsg += 'parmFunction = ' + parmFunction + '\n';
+					var grSOAPMessage = new GlideRecord('sys_soap_message');
+					grSOAPMessage.get(grSOAPMessageFunction.soap_message.toString());
+					parmMessage = grSOAPMessage.getLink();
+					logMsg += 'parmMessage = ' + parmMessage + '\n';
+				}  // if (grSOAPMessageFunction.next())
+			}  // else if (grRESTMessageFunction.next())
+			
+			gs.eventQueue('x_12232_http_mgmt.http_outbound.failure', current, parmMessage, parmFunction, queue);
+			logMsg += 'event "x_12232_http_mgmt.http_outbound.failure" queued' + '\n';
+		}  // if ((current.response_status < 200) || (current.response_status > 299))
+	}  // try
+	catch (err) {
+		logMsg += 'Error:  ' + err.message + '\n';
+	}  // catch
+	finally {
+		gs.info(logMsg);
+	}  // finally
 	
-	var util = new x_12232_http_mgmt.utilHTTPOutboundManagement();
-	
-	var grRESTMessageFunction = util.getRESTFunction(current.url.toString());
-	if (grRESTMessageFunction.next()) {
-		parmFunction = grRESTMessageFunction.getLink();
-		var grRESTMessage = new GlideRecord('sys_rest_message');
-		grRESTMessage.get(grRESTMessageFunction.rest_message.toString());
-		parmMessage = grRESTMessage.getLink();
-	}  // if (grRESTMessageFunction.next())
-	else {
-		var grSOAPMessageFunction = util.getSOAPFunction(current.url.toString());
-		if (grSOAPMessageFunction.next()) {
-			parmFunction = grSOAPMessageFunction.getLink();
-			var grSOAPMessage = new GlideRecord('sys_soap_message');
-			grSOAPMessage.get(grSOAPMessageFunction.soap_message.toString());
-			parmMessage = grSOAPMessage.getLink();
-		}  // if (grSOAPMessageFunction.next())
-	}  // else if (grRESTMessageFunction.next())
-	
-	gs.eventQueue('x_12232_http_mgmt.http_outbound.failure', current, parmMessage, parmFunction, queue);
-
 })(current, previous);
 
 function findMessageFunction (urlEndpoint, parmMessage, parmFunction) {
@@ -99,7 +116,7 @@ function isSOAPFunction (urlEndpoint, parmMessage, parmFunction) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f9c49420dba5b3001b5cf7fdbf9619a4</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>Generate Failure Event</sys_name>
         <sys_overrides/>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
@@ -107,7 +124,7 @@ function isSOAPFunction (urlEndpoint, parmMessage, parmFunction) {
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
         <sys_update_name>sys_script_f9c49420dba5b3001b5cf7fdbf9619a4</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-05-19 15:02:51</sys_updated_on>
+        <sys_updated_on>2019-05-21 14:25:48</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>
