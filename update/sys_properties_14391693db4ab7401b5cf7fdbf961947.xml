@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Default User (sys_user) [sys_id] for Caller in Incident.</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_12232_http_mgmt.http_outbound.failure.caller_id.default</name>
+        <read_roles/>
+        <suffix>http_outbound.failure.caller_id.default</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>robert.polickoski</sys_created_by>
+        <sys_created_on>2019-06-20 14:23:31</sys_created_on>
+        <sys_id>14391693db4ab7401b5cf7fdbf961947</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_12232_http_mgmt.http_outbound.failure.caller_id.default</sys_name>
+        <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+        <sys_update_name>sys_properties_14391693db4ab7401b5cf7fdbf961947</sys_update_name>
+        <sys_updated_by>robert.polickoski</sys_updated_by>
+        <sys_updated_on>2019-06-20 14:23:31</sys_updated_on>
+        <type>string</type>
+        <value/>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=14391693db4ab7401b5cf7fdbf961947"/>
+</record_update>

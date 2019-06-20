@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m">
     <sys_properties_category_m2m action="INSERT_OR_UPDATE">
         <category display_value="HTTP Outbound Message Support">49f9355fdbc6b7401b5cf7fdbf961986</category>
-        <order>30</order>
-        <property display_value="x_12232_http_mgmt.http_outbound.failure.ci.default" name="x_12232_http_mgmt.http_outbound.failure.ci.default">9fa446cfdb4e77401b5cf7fdbf961924</property>
+        <order>50</order>
+        <property display_value="x_12232_http_mgmt.http_outbound.failure.count" name="x_12232_http_mgmt.http_outbound.failure.count">df0131bcdbe1f3001b5cf7fdbf9619f0</property>
         <sys_class_name>sys_properties_category_m2m</sys_class_name>
         <sys_created_by>robert.polickoski</sys_created_by>
-        <sys_created_on>2019-06-20 12:07:54</sys_created_on>
-        <sys_id>a16af9d7dbc6b7401b5cf7fdbf961987</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>x_12232_http_mgmt.http_outbound.failure.ci.default.HTTP Outbound Message Support</sys_name>
+        <sys_created_on>2019-06-20 14:26:36</sys_created_on>
+        <sys_id>952a9253db4ab7401b5cf7fdbf9619e5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_12232_http_mgmt.http_outbound.failure.count.HTTP Outbound Message Support</sys_name>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
         <sys_policy/>
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
-        <sys_update_name>sys_properties_category_m2m_a16af9d7dbc6b7401b5cf7fdbf961987</sys_update_name>
+        <sys_update_name>sys_properties_category_m2m_952a9253db4ab7401b5cf7fdbf9619e5</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-06-20 14:27:30</sys_updated_on>
+        <sys_updated_on>2019-06-20 14:26:36</sys_updated_on>
     </sys_properties_category_m2m>
 </record_update>
