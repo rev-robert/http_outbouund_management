@@ -133,6 +133,10 @@ utilHTTPOutboundManagement.prototype = {
 		var sidMessage = '';
 		try {
 			grIncident.initialize();
+			//  Set defaults from properties
+			grIncident.assignment_group = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.assignment_group.default').toString().trim();
+			grIncident.cmdb_ci = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.ci.default').toString().trim();
+			grIncident.business_service = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.service.default').toString().trim();
 			var txtShortDescription = 'HTTP Outbound Failure:  ';
 			var txtDescription = 'There has been an HTTP Outbound Failure:' + '\n';
 			logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
@@ -149,7 +153,6 @@ utilHTTPOutboundManagement.prototype = {
 			txtDescription += '\t' + 'Response Time:  ' + grHTTPOutboundLog.response_time.toString().trim() + '\n';
 			logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
 			logMsg += 'grHTTPOutboundLog.url = ' + grHTTPOutboundLog.url.toString().trim() + '\n';
-			grIncident.assignment_group = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.assignment_group.default').toString().trim();
 			var grRESTMessageFunction = this.getRESTFunction(grHTTPOutboundLog.url.toString().trim());
 			if (grRESTMessageFunction.next()) {
 				logMsg += 'grRESTMessageFunction.sys_id = ' + grRESTMessageFunction.sys_id.toString().trim() + '\n';
@@ -174,6 +177,7 @@ utilHTTPOutboundManagement.prototype = {
 				}  // if (grSOAPMessageFunction.next())
 			}  // else if (grRESTMessageFunction.next())
 			if (sidMessage != '') {
+				//  Set Incident values based on Message Support Table
 				var grMessageSupport = this.getMessageSupport(sidMessage);
 				if (grMessageSupport.next()) {
 					grIncident.cmdb_ci = grMessageSupport.cmdb_ci.toString().trim();
@@ -201,13 +205,13 @@ utilHTTPOutboundManagement.prototype = {
         <sys_created_by>robert.polickoski</sys_created_by>
         <sys_created_on>2019-05-18 20:18:36</sys_created_on>
         <sys_id>868d29f8dbe1f3001b5cf7fdbf961993</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>46</sys_mod_count>
         <sys_name>utilHTTPOutboundManagement</sys_name>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
         <sys_update_name>sys_script_include_868d29f8dbe1f3001b5cf7fdbf961993</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-06-19 18:11:48</sys_updated_on>
+        <sys_updated_on>2019-06-20 12:19:21</sys_updated_on>
     </sys_script_include>
 </record_update>
