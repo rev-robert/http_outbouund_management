@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_icon">
+    <sys_sg_icon action="INSERT_OR_UPDATE">
+        <icon>{"Shape":"Circle","FontName":"Font Awesome 5 Free","Value":"f15c","FontColor":"#293E40","BackgroundColor":"#293E40","Name":"file-alt"}</icon>
+        <name>file-alt</name>
+        <sys_class_name>sys_sg_icon</sys_class_name>
+        <sys_created_by>robert.polickoski</sys_created_by>
+        <sys_created_on>2019-06-28 18:26:46</sys_created_on>
+        <sys_id>91dd1082dbd27f401b5cf7fdbf96196c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>file-alt</sys_name>
+        <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+        <sys_update_name>sys_sg_icon_91dd1082dbd27f401b5cf7fdbf96196c</sys_update_name>
+        <sys_updated_by>robert.polickoski</sys_updated_by>
+        <sys_updated_on>2019-06-28 18:26:46</sys_updated_on>
+    </sys_sg_icon>
+</record_update>
