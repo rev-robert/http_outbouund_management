@@ -7,16 +7,16 @@
         <screen_data_item_table>x_12232_http_mgmt_outbound_message_support</screen_data_item_table>
         <sys_class_name>sys_sg_screen_field</sys_class_name>
         <sys_created_by>robert.polickoski</sys_created_by>
-        <sys_created_on>2019-06-28 19:25:10</sys_created_on>
-        <sys_id>783b280edbd27f401b5cf7fdbf96194c</sys_id>
+        <sys_created_on>2019-06-28 20:29:19</sys_created_on>
+        <sys_id>ece9f00adb167f401b5cf7fdbf96190e</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>sys_updated_by</sys_name>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
         <sys_policy/>
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
-        <sys_update_name>sys_sg_screen_field_783b280edbd27f401b5cf7fdbf96194c</sys_update_name>
+        <sys_update_name>sys_sg_screen_field_ece9f00adb167f401b5cf7fdbf96190e</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-06-28 19:25:10</sys_updated_on>
+        <sys_updated_on>2019-06-28 20:29:19</sys_updated_on>
         <type>auto</type>
     </sys_sg_screen_field>
 </record_update>

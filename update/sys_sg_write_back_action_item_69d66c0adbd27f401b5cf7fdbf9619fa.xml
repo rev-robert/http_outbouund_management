@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_write_back_action_item">
     <sys_sg_write_back_action_item action="INSERT_OR_UPDATE">
-        <description/>
+        <description>Create New Outbound Message Support Record</description>
         <execution_script/>
         <name>Create New Outbound Message Support Record</name>
         <query_condition/>
@@ -8,14 +8,14 @@
         <sys_created_by>robert.polickoski</sys_created_by>
         <sys_created_on>2019-06-28 19:07:04</sys_created_on>
         <sys_id>69d66c0adbd27f401b5cf7fdbf9619fa</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Create New Outbound Message Support Record</sys_name>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
         <sys_policy/>
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
         <sys_update_name>sys_sg_write_back_action_item_69d66c0adbd27f401b5cf7fdbf9619fa</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-06-28 19:07:04</sys_updated_on>
+        <sys_updated_on>2019-06-28 19:28:47</sys_updated_on>
         <table>x_12232_http_mgmt_outbound_message_support</table>
         <template/>
         <type>new</type>

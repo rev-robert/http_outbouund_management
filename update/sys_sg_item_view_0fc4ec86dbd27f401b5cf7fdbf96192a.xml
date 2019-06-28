@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_view">
     <sys_sg_item_view action="INSERT_OR_UPDATE">
-        <data_item display_value="Outbound Message Support">fd646886dbd27f401b5cf7fdbf9619e5</data_item>
+        <data_item display_value="Outbound Message Support">ccf8f0c6db167f401b5cf7fdbf9619f2</data_item>
         <dependency_fields>message,cmdb_ci_service,cmdb_ci</dependency_fields>
         <item_view_json>{"Type":"ViewGroup","Margin":{"Top":15,"Bottom":17},"Orientation":"Vertical","Alignment":"Left","Distribution":"Auto","Children":[{"Type":"Text","studio_template_field_id":"E1","TextColor":"#293E40","TextAlignment":"Left","MaxLines":2,"Font":{"Weight":"medium","Size":18},"CellId":"message"},{"Type":"Text","Margin":{"Top":7},"studio_template_field_id":"E2","TextColor":"#293e40","TextAlignment":"Left","MaxLines":1,"Font":{"Weight":"regular","Size":16},"CellId":"cmdb_ci_service"},{"Type":"Text","Margin":{"Top":7},"studio_template_field_id":"E3","TextColor":"#7d8a8c","TextAlignment":"Left","MaxLines":1,"Font":{"Weight":"regular","Size":13},"CellId":"cmdb_ci"}],"studio_card_id":"c5eea09173c12300d396c8168bf6a71e"}</item_view_json>
         <name>Outbound Message Support item view</name>
@@ -16,7 +16,7 @@
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
         <sys_update_name>sys_sg_item_view_0fc4ec86dbd27f401b5cf7fdbf96192a</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-06-28 18:57:11</sys_updated_on>
+        <sys_updated_on>2019-06-28 20:29:13</sys_updated_on>
         <ui_styles/>
     </sys_sg_item_view>
 </record_update>
