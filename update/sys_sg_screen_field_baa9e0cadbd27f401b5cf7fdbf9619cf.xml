@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_screen_field">
     <sys_sg_screen_field action="INSERT_OR_UPDATE">
-        <data_item_field_name>assignment_group</data_item_field_name>
+        <data_item_field_name>business_service</data_item_field_name>
         <hidden>false</hidden>
-        <order>50</order>
+        <order>10</order>
         <screen display_value="Details">9ccf14c2dbd27f401b5cf7fdbf961987</screen>
         <screen_data_item_table>incident</screen_data_item_table>
         <sys_class_name>sys_sg_screen_field</sys_class_name>
         <sys_created_by>robert.polickoski</sys_created_by>
-        <sys_created_on>2019-06-28 19:10:40</sys_created_on>
-        <sys_id>e0e72c4adbd27f401b5cf7fdbf961903</sys_id>
+        <sys_created_on>2019-06-28 19:18:29</sys_created_on>
+        <sys_id>baa9e0cadbd27f401b5cf7fdbf9619cf</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>assignment_group</sys_name>
+        <sys_name>business_service</sys_name>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
         <sys_policy/>
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
-        <sys_update_name>sys_sg_screen_field_e0e72c4adbd27f401b5cf7fdbf961903</sys_update_name>
+        <sys_update_name>sys_sg_screen_field_baa9e0cadbd27f401b5cf7fdbf9619cf</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-06-28 19:10:40</sys_updated_on>
+        <sys_updated_on>2019-06-28 19:18:29</sys_updated_on>
         <type>auto</type>
     </sys_sg_screen_field>
 </record_update>

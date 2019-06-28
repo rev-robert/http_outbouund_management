@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_screen_field">
     <sys_sg_screen_field action="INSERT_OR_UPDATE">
-        <data_item_field_name>message</data_item_field_name>
+        <data_item_field_name>sys_created_on</data_item_field_name>
         <hidden>false</hidden>
         <order>10</order>
         <screen display_value="Details">abc4a0c6dbd27f401b5cf7fdbf96194b</screen>
         <screen_data_item_table>x_12232_http_mgmt_outbound_message_support</screen_data_item_table>
         <sys_class_name>sys_sg_screen_field</sys_class_name>
         <sys_created_by>robert.polickoski</sys_created_by>
-        <sys_created_on>2019-06-28 18:59:36</sys_created_on>
-        <sys_id>9e5568c6dbd27f401b5cf7fdbf961979</sys_id>
+        <sys_created_on>2019-06-28 19:21:34</sys_created_on>
+        <sys_id>4c6a6ccadbd27f401b5cf7fdbf96194e</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>message</sys_name>
+        <sys_name>sys_created_on</sys_name>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
         <sys_policy/>
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
-        <sys_update_name>sys_sg_screen_field_9e5568c6dbd27f401b5cf7fdbf961979</sys_update_name>
+        <sys_update_name>sys_sg_screen_field_4c6a6ccadbd27f401b5cf7fdbf96194e</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-06-28 18:59:36</sys_updated_on>
+        <sys_updated_on>2019-06-28 19:21:34</sys_updated_on>
         <type>auto</type>
     </sys_sg_screen_field>
 </record_update>
