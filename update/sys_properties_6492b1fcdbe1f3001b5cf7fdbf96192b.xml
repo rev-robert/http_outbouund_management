@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
     <sys_properties action="INSERT_OR_UPDATE">
         <choices/>
-        <description>The time threshold between http_outbound.failure events for which a new escalatin is considered unnecessary stored in milliseconds</description>
+        <description>The time threshold between http_outbound.failure events for which a new escalation is considered unnecessary stored in milliseconds</description>
         <ignore_cache>false</ignore_cache>
         <is_private>false</is_private>
         <name>x_12232_http_mgmt.http_outbound.failure.threshold.time</name>
@@ -11,14 +11,14 @@
         <sys_created_by>robert.polickoski</sys_created_by>
         <sys_created_on>2019-05-18 20:40:46</sys_created_on>
         <sys_id>6492b1fcdbe1f3001b5cf7fdbf96192b</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>x_12232_http_mgmt.http_outbound.failure.threshold.time</sys_name>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
         <sys_policy/>
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
         <sys_update_name>sys_properties_6492b1fcdbe1f3001b5cf7fdbf96192b</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-05-31 12:58:03</sys_updated_on>
+        <sys_updated_on>2019-07-03 14:03:07</sys_updated_on>
         <type>integer</type>
         <value>36000</value>
         <write_roles/>

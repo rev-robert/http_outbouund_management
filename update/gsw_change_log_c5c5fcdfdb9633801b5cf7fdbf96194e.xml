@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="gsw_change_log">
+    <gsw_change_log action="INSERT_OR_UPDATE">
+        <change_date>2019-07-02 17:23:44</change_date>
+        <changed_by display_value="Robert Polickoski">98de5a5adb7103001b5cf7fdbf961961</changed_by>
+        <content display_value="Create filtered lists">0c4d09afdb081300c47f5f135e96199e</content>
+        <related_change_log_entry/>
+        <related_task_entry/>
+        <sys_class_name>gsw_change_log</sys_class_name>
+        <sys_created_by>robert.polickoski</sys_created_by>
+        <sys_created_on>2019-07-02 17:23:44</sys_created_on>
+        <sys_id>c5c5fcdfdb9633801b5cf7fdbf96194e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>2019-07-02 17:23:44</sys_name>
+        <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+        <sys_update_name>gsw_change_log_c5c5fcdfdb9633801b5cf7fdbf96194e</sys_update_name>
+        <sys_updated_by>robert.polickoski</sys_updated_by>
+        <sys_updated_on>2019-07-02 17:23:44</sys_updated_on>
+        <type>1</type>
+    </gsw_change_log>
+</record_update>
