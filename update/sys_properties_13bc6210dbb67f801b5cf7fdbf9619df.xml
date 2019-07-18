@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>The default Contact Type for Incidents</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_12232_http_mgmt.failure.contact_type.default</name>
+        <read_roles/>
+        <suffix>failure.contact_type.default</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>robert.polickoski</sys_created_by>
+        <sys_created_on>2019-07-18 14:54:32</sys_created_on>
+        <sys_id>13bc6210dbb67f801b5cf7fdbf9619df</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_12232_http_mgmt.failure.contact_type.default</sys_name>
+        <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+        <sys_update_name>sys_properties_13bc6210dbb67f801b5cf7fdbf9619df</sys_update_name>
+        <sys_updated_by>robert.polickoski</sys_updated_by>
+        <sys_updated_on>2019-07-18 14:54:32</sys_updated_on>
+        <type>string</type>
+        <value>self-service</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=13bc6210dbb67f801b5cf7fdbf9619df"/>
+</record_update>
