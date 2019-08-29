@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="69b7b335db2f3b001b5cf7fdbf961913" sys_domain="global" table="x_12232_http_mgmt_outbound_message_exclusion" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>0</position>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-08-29 19:01:14</sys_created_on>
+            <sys_id>ea487b35db2f3b001b5cf7fdbf961910</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_12232_http_mgmt_outbound_message_exclusion" sys_domain="global" view="Default view">69b7b335db2f3b001b5cf7fdbf961913</sys_ui_section>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-08-29 19:01:14</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>number</element>
+            <position>1</position>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-08-29 19:01:14</sys_created_on>
+            <sys_id>6e487b35db2f3b001b5cf7fdbf961910</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_12232_http_mgmt_outbound_message_exclusion" sys_domain="global" view="Default view">69b7b335db2f3b001b5cf7fdbf961913</sys_ui_section>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-08-29 19:01:14</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>field</element>
+            <position>2</position>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-08-29 19:01:14</sys_created_on>
+            <sys_id>ee487b35db2f3b001b5cf7fdbf961910</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_12232_http_mgmt_outbound_message_exclusion" sys_domain="global" view="Default view">69b7b335db2f3b001b5cf7fdbf961913</sys_ui_section>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-08-29 19:01:14</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>3</position>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-08-29 19:01:14</sys_created_on>
+            <sys_id>62487b35db2f3b001b5cf7fdbf961911</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_12232_http_mgmt_outbound_message_exclusion" sys_domain="global" view="Default view">69b7b335db2f3b001b5cf7fdbf961913</sys_ui_section>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-08-29 19:01:14</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>4</position>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-08-29 19:01:14</sys_created_on>
+            <sys_id>e2487b35db2f3b001b5cf7fdbf961911</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_12232_http_mgmt_outbound_message_exclusion" sys_domain="global" view="Default view">69b7b335db2f3b001b5cf7fdbf961913</sys_ui_section>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-08-29 19:01:14</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>operator</element>
+            <position>5</position>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-08-29 19:01:14</sys_created_on>
+            <sys_id>66487b35db2f3b001b5cf7fdbf961911</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_12232_http_mgmt_outbound_message_exclusion" sys_domain="global" view="Default view">69b7b335db2f3b001b5cf7fdbf961913</sys_ui_section>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-08-29 19:01:14</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>6</position>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-08-29 19:01:14</sys_created_on>
+            <sys_id>e6487b35db2f3b001b5cf7fdbf961911</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_12232_http_mgmt_outbound_message_exclusion" sys_domain="global" view="Default view">69b7b335db2f3b001b5cf7fdbf961913</sys_ui_section>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-08-29 19:01:14</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>value</element>
+            <position>7</position>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-08-29 19:01:14</sys_created_on>
+            <sys_id>6a487b35db2f3b001b5cf7fdbf961911</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_12232_http_mgmt_outbound_message_exclusion" sys_domain="global" view="Default view">69b7b335db2f3b001b5cf7fdbf961913</sys_ui_section>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-08-29 19:01:14</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_12232_http_mgmt_outbound_message_exclusion</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2019-08-29 18:58:42</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>69b7b335db2f3b001b5cf7fdbf961913</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_12232_http_mgmt_outbound_message_exclusion</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+            <sys_update_name>sys_ui_section_69b7b335db2f3b001b5cf7fdbf961913</sys_update_name>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2019-08-29 18:58:42</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>
