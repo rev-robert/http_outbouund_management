@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Outbound Message Exclusion" max_length="40" name="x_12232_http_mgmt_outbound_message_exclusion" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element choice="1" display="true" label="Field" mandatory="true" max_length="80" name="field" type="field_name">
+            <choice>
+                <element inactive_on_update="false" label="URL hostname" sequence="100" value="hostname"/>
+                <element inactive_on_update="false" label="URL" sequence="200" value="url"/>
+                <element inactive_on_update="false" label="Request headers" sequence="300" value="request_headers"/>
+                <element inactive_on_update="false" label="Request body" sequence="400" value="request_body"/>
+                <element inactive_on_update="false" label="Response status" sequence="500" value="response_status"/>
+                <element inactive_on_update="false" label="Response headers" sequence="600" value="response_headers"/>
+                <element inactive_on_update="false" label="Response body" sequence="700" value="response_body"/>
+            </choice>
+        </element>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element choice="1" label="Operator" mandatory="true" max_length="40" name="operator" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="=" sequence="100" value="="/>
+                <element inactive_on_update="false" label="!=" sequence="200" value="!="/>
+                <element inactive_on_update="false" label="&gt;" sequence="300" value="&gt;"/>
+                <element inactive_on_update="false" label="&gt;=" sequence="400" value="&gt;="/>
+                <element inactive_on_update="false" label="&lt;" sequence="500" value="&lt;"/>
+                <element inactive_on_update="false" label="&lt;=" sequence="600" value="&lt;="/>
+                <element inactive_on_update="false" label="IN" sequence="700" value="IN"/>
+                <element inactive_on_update="false" label="NOT IN" sequence="800" value="NOT IN"/>
+                <element inactive_on_update="false" label="STARTS WITH" sequence="900" value="STARTSWITH"/>
+                <element inactive_on_update="false" label="ENDS WITH" sequence="1000" value="ENDSWITH"/>
+                <element inactive_on_update="false" label="CONTAINS" sequence="1100" value="CONTAINS"/>
+                <element inactive_on_update="false" label="DOES NOT CONTAIN" sequence="1200" value="DOES NOT CONTAIN"/>
+                <element inactive_on_update="false" label="INSTANCE OF" sequence="1300" value="INSTANCEOF"/>
+            </choice>
+        </element>
+        <element label="Value" mandatory="true" max_length="4000" name="value" type="string"/>
+    </element>
+</database>

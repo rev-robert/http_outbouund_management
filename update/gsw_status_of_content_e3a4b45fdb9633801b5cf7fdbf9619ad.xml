@@ -7,19 +7,19 @@
         <more_info_visited>false</more_info_visited>
         <previous_status>0</previous_status>
         <progress>12.5</progress>
-        <related_log_entry display_value="2019-07-02 13:19:02">54b4bc9fdb9633801b5cf7fdbf961961</related_log_entry>
+        <related_log_entry display_value="2019-08-06 11:19:29">82f860a6db87ff001b5cf7fdbf9619b6</related_log_entry>
         <status>1</status>
         <sys_class_name>gsw_status_of_content</sys_class_name>
         <sys_created_by>robert.polickoski</sys_created_by>
         <sys_created_on>2019-07-02 17:18:59</sys_created_on>
         <sys_id>e3a4b45fdb9633801b5cf7fdbf9619ad</sys_id>
-        <sys_mod_count>89</sys_mod_count>
+        <sys_mod_count>91</sys_mod_count>
         <sys_name>1</sys_name>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
         <sys_policy/>
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
         <sys_update_name>gsw_status_of_content_e3a4b45fdb9633801b5cf7fdbf9619ad</sys_update_name>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2019-07-19 22:53:01</sys_updated_on>
+        <sys_updated_by>robert.polickoski</sys_updated_by>
+        <sys_updated_on>2019-08-06 15:19:29</sys_updated_on>
     </gsw_status_of_content>
 </record_update>
