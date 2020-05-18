@@ -3,234 +3,266 @@
         <access>public</access>
         <active>true</active>
         <api_name>x_12232_http_mgmt.utilHTTPOutboundManagement</api_name>
+        <caller_access/>
         <client_callable>false</client_callable>
         <description/>
         <name>utilHTTPOutboundManagement</name>
         <script><![CDATA[var utilHTTPOutboundManagement = Class.create();
 utilHTTPOutboundManagement.prototype = {
-	initialize: function(grHTTPOutboundLog) {
-		if (grHTTPOutboundLog != undefined) {
-			this.grLog = grHTTPOutboundLog;
-		}  // if (grHTTPOutboundLog != undefined)
-	},
-	
-	setLog: function (grHTTPOutboundLog) {
-		this.grLog = grHTTPOutboundLog;
-	},  // setLog
-	
-	getPreviousEvent: function (grHTTPOutboundLog, eventCurrent) {
-		var grPreviousEvent = new GlideRecord('sysevent');
-		try {
-			var propThresholdTime = gs.getProperty('http_outbound.failure.threshold.time');
-			grPreviousEvent.addQuery('name', eventCurrent.name.toString().trim());
-			grPreviousEvent.addQuery('parm1', eventCurrent.parm1.toString().trim());
-			grPreviousEvent.addQuery('parm2', eventCurrent.parm2.toString().trim());
-			grPreviousEvent.addQuery('instance', '!=', grHTTPOutboundLog.sys_id.toString().trim());
-			grPreviousEvent.addEncodedQuery("sys_created_on<javascript:gs.dateGenerate('" + eventCurrent.sys_created_on + "')");
-			grPreviousEvent.orderByDesc('sys_created_on');
-			grPreviousEvent.setLimit(1);
-			grPreviousEvent.query();
-		}  // try
-		catch (err) {
-			gs.error('getPreviousEvent:  Error - ' + err.message);
-		}  // catch
-		finally {
-			gs.info('grPreviousEvent.getEncodedQuery() = ' + grPreviousEvent.getEncodedQuery() + '\n' + 'grPreviousEvent.getRowCount() = ' + grPreviousEvent.getRowCount() + '\n');
-			return grPreviousEvent;
-		}  // finally
-	},  //  getPreviousEvent
-	
-	getRESTFunction: function (urlEndpoint) {
-		var boolIsREST = false;
-		var grRESTMessageFunction = new GlideRecord('sys_rest_message_fn');
-		grRESTMessageFunction.addQuery('rest_endpoint', urlEndpoint);
-		grRESTMessageFunction.query();
-		gs.info('grRESTMessageFunction.getEncodedQuery() = ' + grRESTMessageFunction.getEncodedQuery() + '\n' + 'grRESTMessageFunction.getRowCount() = ' + grRESTMessageFunction.getRowCount() + '\n');
-		return grRESTMessageFunction;
-	},  // getRESTFunction
-	
-	getRESTMessage: function (sidRESTMessage) {
-		var grRESTMessage = new GlideRecord('sys_rest_message');
-		grRESTMessage.get(sidRESTMessage);
-		gs.info('grRESTMessage.getEncodedQuery() = ' + grRESTMessage.getEncodedQuery() + '\n' + 'grRESTMessage.getRowCount() = ' + grRESTMessage.getRowCount() + '\n');
-		return grRESTMessage;
-	},  // getRestMessage
-	
-	getSOAPFunction: function (urlEndpoint) {
-		var boolIsSOAP= false;
-		var grSOAPMessageFunction = new GlideRecord('sys_soap_message_function');
-		grSOAPMessageFunction.addQuery('soap_endpoint', urlEndpoint);
-		grSOAPMessageFunction.query();
-		gs.info('grSOAPMessageFunction.getEncodedQuery() = ' + grSOAPMessageFunction.getEncodedQuery() + '\n' + 'grSOAPMessageFunction.getRowCount() = ' + grSOAPMessageFunction.getRowCount() + '\n');
-		return grSOAPMessageFunction;
-	},  // getSOAPFunction
-	
-	getSOAPMessage: function (sidSOAPMessage) {
-		var grSOAPMessage = new GlideRecord('sys_soap_message');
-		grSOAPMessage.get(sidSOAPMessage);
-		gs.info('grSOAPMessage.getEncodedQuery() = ' + grSOAPMessage.getEncodedQuery() + '\n' + 'grSOAPMessage.getRowCount() = ' + grSOAPMessage.getRowCount() + '\n');
-		return grSOAPMessage;
-	},
-	
-	getMessageSupport: function (sidMessage) {
-		var grMessageSupport = new GlideRecord('x_12232_http_mgmt_outbound_message_support');
-		grMessageSupport.addQuery('message', sidMessage);
-		grMessageSupport.query();
-		return grMessageSupport;
-	},  // getMessageSupport
-	
-	generateFailureEvent: function (grHTTPOutboundLog) {
-		var logMsg = 'generateFailureEvent(' + grHTTPOutboundLog.sys_id.toString().trim() + ')' + '\n';
-		
-		var parmMessage = '';
-		var parmFunction = '';
-		var queue = '';
-		try {
-			logMsg += 'grHTTPOutboundLog.response_status = ' + grHTTPOutboundLog.response_status.toString().trim() + '; (grHTTPOutboundLog.response_status < 200) = ' + (grHTTPOutboundLog.response_status < 200) + '; (grHTTPOutboundLog.response_status > 299) = ' + (grHTTPOutboundLog.response_status > 299) + '; ((grHTTPOutboundLog.response_status < 200) || (grHTTPOutboundLog.response_status > 299)) = ' + ((grHTTPOutboundLog.response_status < 200) || (grHTTPOutboundLog.response_status > 299)) + '\n';
-			//gs.info(logMsg);
-			if ((grHTTPOutboundLog.response_status < 200) || (grHTTPOutboundLog.response_status > 299)) {
-				
-				logMsg += 'util (x_12232_http_mgmt.utilHTTPOutboundManagement) initialized' + '\n';
-				var grRESTMessageFunction = this.getRESTFunction(grHTTPOutboundLog.url.toString().trim());
-				logMsg += 'this.getRESTFunction(' + grHTTPOutboundLog.url.toString().trim() + ') invoked' + '\n';
-				if (grRESTMessageFunction.next()) {
-					logMsg += 'grRESTMessageFunction.next() = true' + '\n';
-					parmFunction = grRESTMessageFunction.getLink();
-					logMsg += 'parmFunction = ' + parmFunction + '\n';
-					var grRESTMessage = new GlideRecord('sys_rest_message');
-					grRESTMessage.get(grRESTMessageFunction.rest_message.toString().trim());
-					parmMessage = grRESTMessage.getLink();
-					logMsg += 'parmMessage = ' + parmMessage + '\n';
-				}  // if (grRESTMessageFunction.next())
-				else {
-					var grSOAPMessageFunction = this.getSOAPFunction(grHTTPOutboundLog.url.toString().trim());
-					if (grSOAPMessageFunction.next()) {
-						logMsg += 'grSOAPMessageFunction.next() = true' + '\n';
-						parmFunction = grSOAPMessageFunction.getLink();
-						logMsg += 'parmFunction = ' + parmFunction + '\n';
-						var grSOAPMessage = new GlideRecord('sys_soap_message');
-						grSOAPMessage.get(grSOAPMessageFunction.soap_message.toString().trim());
-						parmMessage = grSOAPMessage.getLink();
-						logMsg += 'parmMessage = ' + parmMessage + '\n';
-					}  // if (grSOAPMessageFunction.next())
-					else {
-						logMsg += 'Neither REST Message nor SOAP Message found' + '\n';
-						parmFunction = "URL: " + grHTTPOutboundLog.url + '\n' + "Request Headers: " + grHTTPOutboundLog.request_headers + '\n' + "Request Body: " + grHTTPOutboundLog.request_body;
-						logMsg += 'parmFunction = ' + parmFunction + '\n';
-						parmMessage = "Response Body: " + grHTTPOutboundLog.response_body;
-						logMsg += 'parmMessage = ' + parmMessage + '\n';
-					}  // else if (grSOAPMessageFunction.next())
-				}  // else if (grRESTMessageFunction.next())
-				
-				gs.eventQueue('x_12232_http_mgmt.http_outbound.failure', grHTTPOutboundLog, parmMessage.toString().trim(), parmFunction.toString().trim(), queue);
-				logMsg += 'event "x_12232_http_mgmt.http_outbound.failure" queued' + '\n';
-			}  // if ((grHTTPOutboundLog.response_status < 200) || (grHTTPOutboundLog.response_status > 299))
-		}  // try
-		catch (err) {
-			logMsg += 'Error:  ' + err.message + '\n';
-		}  // catch
-		finally {
-			gs.info(logMsg);
-		}  // finally
-	},  // generateFailureEvent
-	
-	addOutboundMessageExclusions:  function (grHTTPOutboundLog) {
-		var grOMX = new GlideRecord('x_12232_http_mgmt_outbound_message_exclusion');
-		grOMX.addQuery('active', true);
-		grOMX.query();
-		while (grOMX.next()) {
-			grHTTPOutboundLog.addQuery(grOMX.field, grOMX.operator, grOMX.value);
-		}  // while (grOMX.next())
-	},  // checkOutboundMessageExclusion
-	
-	generateIncident: function (grHTTPOutboundLog, event) {
-		var logMsg = 'generateIncident(' + grHTTPOutboundLog.sys_id.toString().trim() + ', ' + event.sys_id.toString().trim() + ')' + '\n';
-		var grIncident = new GlideRecord('incident');
-		var sidMessage = '';
-		try {
-			grIncident.initialize();
-			//  Set defaults from properties
-			grIncident.caller_id = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.caller_id.default').toString().trim();
-			grIncident.contact_type = gs.getProperty('x_12232_http_mgmt.failure.contact_type.default').toString().trim();
-			grIncident.assignment_group = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.assignment_group.default').toString().trim();
-			grIncident.assignment_group = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.assignment_group.default').toString().trim();
-			grIncident.cmdb_ci = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.ci.default').toString().trim();
-			grIncident.business_service = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.service.default').toString().trim();
-			var txtShortDescription = 'HTTP Outbound Failure:  ';
-			var txtDescription = 'There has been an HTTP Outbound Failure:' + '\n';
-			logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
-			txtDescription += '\t' + 'Response Status:  ' + grHTTPOutboundLog.response_status.toString().trim() + '\n';
-			logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
-			txtDescription += '\t' + 'Request Headers:  ' + grHTTPOutboundLog.request_headers.toString().trim() + '\n';
-			logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
-			txtDescription += '\t' + 'Request Body:  ' + grHTTPOutboundLog.request_body.toString().trim() + '\n';
-			logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
-			txtDescription += '\t' + 'Response Headers:  ' + grHTTPOutboundLog.response_headers.toString().trim() + '\n';
-			logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
-			txtDescription += '\t' + 'Response Body:  ' + grHTTPOutboundLog.response_body.toString().trim() + '\n';
-			logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
-			txtDescription += '\t' + 'Response Time:  ' + grHTTPOutboundLog.response_time.toString().trim() + '\n';
-			logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
-			logMsg += 'grHTTPOutboundLog.url = ' + grHTTPOutboundLog.url.toString().trim() + '\n';
-			var grRESTMessageFunction = this.getRESTFunction(grHTTPOutboundLog.url.toString().trim());
-			if (grRESTMessageFunction.next()) {
-				logMsg += 'grRESTMessageFunction.sys_id = ' + grRESTMessageFunction.sys_id.toString().trim() + '\n';
-				txtShortDescription += grRESTMessageFunction.function_name.toString().trim();
-				txtDescription += '\n' + 'REST Message Funtion URL:  ' + 'https://' + gs.getProperty('instance_name') + '.service-now.com/' + grRESTMessageFunction.getLink() + '\n';
-				sidMessage = grRESTMessageFunction.rest_message.toString().trim();
-				var grRESTMessage = this.getRESTMessage(sidMessage);
-				logMsg += 'grRESTMessage.sys_id = ' + grRESTMessage.sys_id.toString().trim() + '\n';
-				txtDescription += '\n' + 'REST Message URL:  ' + 'https://' + gs.getProperty('instance_name') + '.service-now.com/' + grRESTMessage.getLink() + '\n';
-				logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
-			}  // if (grRESTMessageFunction.next())
-			else {
-				var grSOAPMessageFunction = this.getSOAPFunction(grHTTPOutboundLog.url.toString().trim());
-				if (grSOAPMessageFunction.next()) {
-					logMsg += 'grSOAPMessageFunction.sys_id = ' + grSOAPMessageFunction.sys_id.toString().trim() + '\n';
-					txtShortDescription += grSOAPMessageFunction.function_name.toString().trim();
-					txtDescription += '\n' + 'SOAP Message Function URL:  ' + 'https://' + gs.getProperty('instance_name') + '.service-now.com/' + grSOAPMessageFunction.getLink() + '\n';
-					logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
-					sidMessage = grSOAPMessageFunction.soap_message.toString().trim();
-					var grSOAPMessage = this.getSOAPMessage(sidMessage);
-					txtDescription += '\n' + 'SOAP Message URL:  ' + 'https://' + gs.getProperty('instance_name') + '.service-now.com/' + grSOAPMessage.getLink() + '\n';
-				}  // if (grSOAPMessageFunction.next())
-			}  // else if (grRESTMessageFunction.next())
-			if (sidMessage != '') {
-				//  Set Incident values based on Message Support Table
-				var grMessageSupport = this.getMessageSupport(sidMessage);
-				if (grMessageSupport.next()) {
-					grIncident.cmdb_ci = grMessageSupport.cmdb_ci.toString().trim();
-					grIncident.business_service = grMessageSupport.cmdb_ci_service.toString().trim();
-					grIncident.assignment_group = grMessageSupport.support_group.toString().trim();
-				}  // if (grMessageSupport.next())
-			}  // if (sidMessage != '')
-			grIncident.short_description = txtShortDescription;
-			grIncident.description = txtDescription;
-			var sidIncident = grIncident.insert();
-			logMsg += 'sidIncident = ' + sidIncident + '\n';
-		}  // try
-		catch (err) {
-			logMsg += 'Error:  ' + err.message + '\n';
-		}  // catch
-		finally {
-			gs.info(logMsg);
-			return grIncident;
-		}  // finally
-	},  // generateIncident
-	
-	type: 'utilHTTPOutboundManagement'
+    initialize: function(grHTTPOutboundLog) {
+        if (grHTTPOutboundLog != undefined) {
+            this.grLog = grHTTPOutboundLog;
+        } // if (grHTTPOutboundLog != undefined)
+    },
+
+    setLog: function(grHTTPOutboundLog) {
+        this.grLog = grHTTPOutboundLog;
+    }, // setLog
+
+    getPreviousEvent: function(grHTTPOutboundLog, eventCurrent) {
+        var grPreviousEvent = new GlideRecord('sysevent');
+        try {
+            var propThresholdTime = gs.getProperty('http_outbound.failure.threshold.time');
+            grPreviousEvent.addQuery('name', eventCurrent.name.toString().trim());
+            grPreviousEvent.addQuery('parm1', eventCurrent.parm1.toString().trim());
+            grPreviousEvent.addQuery('parm2', eventCurrent.parm2.toString().trim());
+            grPreviousEvent.addQuery('instance', '!=', grHTTPOutboundLog.sys_id.toString().trim());
+            grPreviousEvent.addEncodedQuery("sys_created_on<javascript:gs.dateGenerate('" + eventCurrent.sys_created_on + "')");
+            grPreviousEvent.orderByDesc('sys_created_on');
+            grPreviousEvent.setLimit(1);
+            grPreviousEvent.query();
+        } // try
+        catch (err) {
+            gs.error('getPreviousEvent:  Error - ' + err.message);
+        } // catch
+        finally {
+            gs.info('grPreviousEvent.getEncodedQuery() = ' + grPreviousEvent.getEncodedQuery() + '\n' + 'grPreviousEvent.getRowCount() = ' + grPreviousEvent.getRowCount() + '\n');
+            return grPreviousEvent;
+        } // finally
+    }, //  getPreviousEvent
+
+    getRESTFunction: function(urlEndpoint) {
+        var boolIsREST = false;
+        var grRESTMessageFunction = new GlideRecord('sys_rest_message_fn');
+        grRESTMessageFunction.addQuery('rest_endpoint', urlEndpoint);
+        grRESTMessageFunction.query();
+        gs.info('grRESTMessageFunction.getEncodedQuery() = ' + grRESTMessageFunction.getEncodedQuery() + '\n' + 'grRESTMessageFunction.getRowCount() = ' + grRESTMessageFunction.getRowCount() + '\n');
+        return grRESTMessageFunction;
+    }, // getRESTFunction
+
+    getRESTMessage: function(sidRESTMessage) {
+        var grRESTMessage = new GlideRecord('sys_rest_message');
+        grRESTMessage.get(sidRESTMessage);
+        gs.info('grRESTMessage.getEncodedQuery() = ' + grRESTMessage.getEncodedQuery() + '\n' + 'grRESTMessage.getRowCount() = ' + grRESTMessage.getRowCount() + '\n');
+        return grRESTMessage;
+    }, // getRestMessage
+
+    getSOAPFunction: function(urlEndpoint) {
+        var boolIsSOAP = false;
+        var grSOAPMessageFunction = new GlideRecord('sys_soap_message_function');
+        grSOAPMessageFunction.addQuery('soap_endpoint', urlEndpoint);
+        grSOAPMessageFunction.query();
+        gs.info('grSOAPMessageFunction.getEncodedQuery() = ' + grSOAPMessageFunction.getEncodedQuery() + '\n' + 'grSOAPMessageFunction.getRowCount() = ' + grSOAPMessageFunction.getRowCount() + '\n');
+        return grSOAPMessageFunction;
+    }, // getSOAPFunction
+
+    getSOAPMessage: function(sidSOAPMessage) {
+        var grSOAPMessage = new GlideRecord('sys_soap_message');
+        grSOAPMessage.get(sidSOAPMessage);
+        gs.info('grSOAPMessage.getEncodedQuery() = ' + grSOAPMessage.getEncodedQuery() + '\n' + 'grSOAPMessage.getRowCount() = ' + grSOAPMessage.getRowCount() + '\n');
+        return grSOAPMessage;
+    },
+
+    getMessageSupport: function(sidMessage) {
+        var grMessageSupport = new GlideRecord('x_12232_http_mgmt_outbound_message_support');
+        grMessageSupport.addQuery('message', sidMessage);
+        grMessageSupport.query();
+        return grMessageSupport;
+    }, // getMessageSupport
+
+    generateFailureEvent: function(grHTTPOutboundLog) {
+        var logMsg = 'generateFailureEvent(' + grHTTPOutboundLog.sys_id.toString().trim() + ')' + '\n';
+
+        var parmMessage = '';
+        var parmFunction = '';
+        var queue = '';
+        try {
+            logMsg += 'grHTTPOutboundLog.response_status = ' + grHTTPOutboundLog.response_status.toString().trim() + '; (grHTTPOutboundLog.response_status < 200) = ' + (grHTTPOutboundLog.response_status < 200) + '; (grHTTPOutboundLog.response_status > 299) = ' + (grHTTPOutboundLog.response_status > 299) + '; ((grHTTPOutboundLog.response_status < 200) || (grHTTPOutboundLog.response_status > 299)) = ' + ((grHTTPOutboundLog.response_status < 200) || (grHTTPOutboundLog.response_status > 299)) + '\n';
+            //gs.info(logMsg);
+            if ((grHTTPOutboundLog.response_status < 200) || (grHTTPOutboundLog.response_status > 299)) {
+
+                logMsg += 'util (x_12232_http_mgmt.utilHTTPOutboundManagement) initialized' + '\n';
+                var grRESTMessageFunction = this.getRESTFunction(grHTTPOutboundLog.url.toString().trim());
+                logMsg += 'this.getRESTFunction(' + grHTTPOutboundLog.url.toString().trim() + ') invoked' + '\n';
+                if (grRESTMessageFunction.next()) {
+                    logMsg += 'grRESTMessageFunction.next() = true' + '\n';
+                    parmFunction = grRESTMessageFunction.getLink();
+                    logMsg += 'parmFunction = ' + parmFunction + '\n';
+                    var grRESTMessage = new GlideRecord('sys_rest_message');
+                    grRESTMessage.get(grRESTMessageFunction.rest_message.toString().trim());
+                    parmMessage = grRESTMessage.getLink();
+                    logMsg += 'parmMessage = ' + parmMessage + '\n';
+                } // if (grRESTMessageFunction.next())
+                else {
+                    var grSOAPMessageFunction = this.getSOAPFunction(grHTTPOutboundLog.url.toString().trim());
+                    if (grSOAPMessageFunction.next()) {
+                        logMsg += 'grSOAPMessageFunction.next() = true' + '\n';
+                        parmFunction = grSOAPMessageFunction.getLink();
+                        logMsg += 'parmFunction = ' + parmFunction + '\n';
+                        var grSOAPMessage = new GlideRecord('sys_soap_message');
+                        grSOAPMessage.get(grSOAPMessageFunction.soap_message.toString().trim());
+                        parmMessage = grSOAPMessage.getLink();
+                        logMsg += 'parmMessage = ' + parmMessage + '\n';
+                    } // if (grSOAPMessageFunction.next())
+                    else {
+                        logMsg += 'Neither REST Message nor SOAP Message found' + '\n';
+                        parmFunction = "URL: " + grHTTPOutboundLog.url + '\n' + "Request Headers: " + grHTTPOutboundLog.request_headers + '\n' + "Request Body: " + grHTTPOutboundLog.request_body;
+                        logMsg += 'parmFunction = ' + parmFunction + '\n';
+                        parmMessage = "Response Body: " + grHTTPOutboundLog.response_body;
+                        logMsg += 'parmMessage = ' + parmMessage + '\n';
+                    } // else if (grSOAPMessageFunction.next())
+                } // else if (grRESTMessageFunction.next())
+
+                gs.eventQueue('x_12232_http_mgmt.http_outbound.failure', grHTTPOutboundLog, parmMessage.toString().trim(), parmFunction.toString().trim(), queue);
+                logMsg += 'event "x_12232_http_mgmt.http_outbound.failure" queued' + '\n';
+            } // if ((grHTTPOutboundLog.response_status < 200) || (grHTTPOutboundLog.response_status > 299))
+        } // try
+        catch (err) {
+            logMsg += 'Error:  ' + err.message + '\n';
+        } // catch
+        finally {
+            gs.info(logMsg);
+        } // finally
+    }, // generateFailureEvent
+
+    addOutboundMessageExclusions: function(grHTTPOutboundLog) {
+        var grOMX = new GlideRecord('x_12232_http_mgmt_outbound_message_exclusion');
+        grOMX.addQuery('active', true);
+        grOMX.query();
+        while (grOMX.next()) {
+            grHTTPOutboundLog.addQuery(grOMX.field, grOMX.operator, grOMX.value);
+        } // while (grOMX.next())
+    }, // checkOutboundMessageExclusion
+
+    generateIncident: function(grHTTPOutboundLog, event) {
+        var logMsg = 'generateIncident(' + grHTTPOutboundLog.sys_id.toString().trim() + ', ' + event.sys_id.toString().trim() + ')' + '\n';
+        var grIncident = new GlideRecord('incident');
+        var sidMessage = '';
+        try {
+			//  Generate Content
+            var txtShortDescription = 'HTTP Outbound Failure:  ';
+            var txtDescription = 'There has been an HTTP Outbound Failure:' + '\n';
+            logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
+            txtDescription += '\t' + 'Response Status:  ' + grHTTPOutboundLog.response_status.toString().trim() + '\n';
+            logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
+            txtDescription += '\t' + 'Request Headers:  ' + grHTTPOutboundLog.request_headers.toString().trim() + '\n';
+            logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
+            txtDescription += '\t' + 'Request Body:  ' + grHTTPOutboundLog.request_body.toString().trim() + '\n';
+            logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
+            txtDescription += '\t' + 'Response Headers:  ' + grHTTPOutboundLog.response_headers.toString().trim() + '\n';
+            logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
+            txtDescription += '\t' + 'Response Body:  ' + grHTTPOutboundLog.response_body.toString().trim() + '\n';
+            logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
+            txtDescription += '\t' + 'Response Time:  ' + grHTTPOutboundLog.response_time.toString().trim() + '\n';
+            logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
+            logMsg += 'grHTTPOutboundLog.url = ' + grHTTPOutboundLog.url.toString().trim() + '\n';
+            var grRESTMessageFunction = this.getRESTFunction(grHTTPOutboundLog.url.toString().trim());
+            if (grRESTMessageFunction.next()) {
+                logMsg += 'grRESTMessageFunction.sys_id = ' + grRESTMessageFunction.sys_id.toString().trim() + '\n';
+                txtShortDescription += grRESTMessageFunction.function_name.toString().trim();
+                txtDescription += '\n' + 'REST Message Funtion URL:  ' + 'https://' + gs.getProperty('instance_name') + '.service-now.com/' + grRESTMessageFunction.getLink() + '\n';
+                sidMessage = grRESTMessageFunction.rest_message.toString().trim();
+                var grRESTMessage = this.getRESTMessage(sidMessage);
+                logMsg += 'grRESTMessage.sys_id = ' + grRESTMessage.sys_id.toString().trim() + '\n';
+                txtDescription += '\n' + 'REST Message URL:  ' + 'https://' + gs.getProperty('instance_name') + '.service-now.com/' + grRESTMessage.getLink() + '\n';
+                logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
+            } // if (grRESTMessageFunction.next())
+            else {
+                var grSOAPMessageFunction = this.getSOAPFunction(grHTTPOutboundLog.url.toString().trim());
+                if (grSOAPMessageFunction.next()) {
+                    logMsg += 'grSOAPMessageFunction.sys_id = ' + grSOAPMessageFunction.sys_id.toString().trim() + '\n';
+                    txtShortDescription += grSOAPMessageFunction.function_name.toString().trim();
+                    txtDescription += '\n' + 'SOAP Message Function URL:  ' + 'https://' + gs.getProperty('instance_name') + '.service-now.com/' + grSOAPMessageFunction.getLink() + '\n';
+                    logMsg += 'txtDescription (so far) = ' + txtDescription + '\n';
+                    sidMessage = grSOAPMessageFunction.soap_message.toString().trim();
+                    var grSOAPMessage = this.getSOAPMessage(sidMessage);
+                    txtDescription += '\n' + 'SOAP Message URL:  ' + 'https://' + gs.getProperty('instance_name') + '.service-now.com/' + grSOAPMessage.getLink() + '\n';
+                } // if (grSOAPMessageFunction.next())
+            } // else if (grRESTMessageFunction.next())
+            if (sidMessage != '') {
+                //  Set Incident values based on Message Support Table
+                var grMessageSupport = this.getMessageSupport(sidMessage);
+                if (grMessageSupport.next()) {
+                    grIncident.cmdb_ci = grMessageSupport.cmdb_ci.toString().trim();
+                    grIncident.business_service = grMessageSupport.cmdb_ci_service.toString().trim();
+                    grIncident.assignment_group = grMessageSupport.support_group.toString().trim();
+                } // if (grMessageSupport.next())
+            } // if (sidMessage != '')
+			//  End Content Generation
+            var txtEncQuery = 'active=true^short_descriptionLIKE' + txtShortDescription;
+            var sidExIncident = this.__checkExistingIncident(txtEncQuery);
+            if (sidExIncident == '') {
+                grIncident.initialize();
+                grIncident.caller_id = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.caller_id.default').toString().trim();
+                grIncident.contact_type = gs.getProperty('x_12232_http_mgmt.failure.contact_type.default').toString().trim();
+                grIncident.assignment_group = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.assignment_group.default').toString().trim();
+                grIncident.assignment_group = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.assignment_group.default').toString().trim();
+                grIncident.cmdb_ci = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.ci.default').toString().trim();
+                grIncident.business_service = gs.getProperty('x_12232_http_mgmt.http_outbound.failure.service.default').toString().trim();
+                grIncident.short_description = txtShortDescription;
+                grIncident.description = txtDescription;
+                var sidIncident = grIncident.insert();
+                logMsg += 'sidIncident = ' + sidIncident + '\n';
+            } // if (sidExIncident == '')
+            else {
+                grIncident.get(sidExIncident);
+                grIncident.work_notes = txtDescription;
+                grIncident.update();
+            } // else if (sidExIncident == '')
+            //  Set defaults from properties
+        } // try
+        catch (err) {
+            logMsg += 'Error:  ' + err.message + '\n';
+        } // catch
+        finally {
+            gs.info(logMsg);
+            return grIncident;
+        } // finally
+    }, // generateIncident
+
+    __checkExistingIncident: function(txtEncQuery) {
+        var sidExistingIncident = '';
+        var logMsg = '__checkExistingIncident(' + txtEncQuery + ')' + '\n';
+        try {
+            var grIncident = new GlideRecord('incident');
+            grIncident.addEncodedQuery(txtEncQuery);
+            grIncident.query();
+            if (grIncident.next()) {
+                sidExistingIncident = grIncident.sys_id.toString();
+            } // if (grIncident.next())
+        } // try
+        catch (err) {
+            logMsg += 'Error:  ' + err.message + '\n';
+        } // catch
+        finally {
+            gs.info(logMsg);
+            return sidExistingIncident;
+        } // finally
+    }, // __checkExistingIncident
+
+    type: 'utilHTTPOutboundManagement'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>robert.polickoski</sys_created_by>
         <sys_created_on>2019-05-18 20:18:36</sys_created_on>
         <sys_id>868d29f8dbe1f3001b5cf7fdbf961993</sys_id>
-        <sys_mod_count>56</sys_mod_count>
+        <sys_mod_count>60</sys_mod_count>
         <sys_name>utilHTTPOutboundManagement</sys_name>
         <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
         <sys_update_name>sys_script_include_868d29f8dbe1f3001b5cf7fdbf961993</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
-        <sys_updated_on>2019-08-29 18:32:08</sys_updated_on>
+        <sys_updated_on>2020-05-18 20:25:43</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_details_screen">
     <sys_sg_details_screen action="INSERT_OR_UPDATE">
-        <application_roles/>
         <available_offline>false</available_offline>
-        <data_item display_value="Outbound Message Support">ccf8f0c6db167f401b5cf7fdbf9619f2</data_item>
         <description>Maintain the Support Groups for the Outbound Web Services</description>
+        <dynamic_prefetch_count/>
         <fetch_type>not_required</fetch_type>
-        <hidden>false</hidden>
+        <hide_filters>false</hide_filters>
         <icon display_value="user">a6c460c6dbd27f401b5cf7fdbf9619ff</icon>
-        <item_view display_value="Outbound Message Support detail item view">0bc460c6dbd27f401b5cf7fdbf961988</item_view>
         <name>Details</name>
-        <order>10</order>
-        <parent>d7c460c6dbd27f401b5cf7fdbf96198b</parent>
-        <parent_table>sys_sg_master_item</parent_table>
         <roles_override/>
         <sys_class_name>sys_sg_details_screen</sys_class_name>
         <sys_created_by>robert.polickoski</sys_created_by>
-        <sys_created_on/>
+        <sys_created_on>2020-05-18 19:34:16</sys_created_on>
         <sys_id>abc4a0c6dbd27f401b5cf7fdbf96194b</sys_id>
         <sys_mod_count>5</sys_mod_count>
         <sys_name>Details</sys_name>
@@ -25,5 +20,6 @@
         <sys_update_name>sys_sg_details_screen_abc4a0c6dbd27f401b5cf7fdbf96194b</sys_update_name>
         <sys_updated_by>robert.polickoski</sys_updated_by>
         <sys_updated_on>2019-06-28 20:29:15</sys_updated_on>
+        <table/>
     </sys_sg_details_screen>
 </record_update>

@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_related_lists_screen">
     <sys_sg_related_lists_screen action="INSERT_OR_UPDATE">
-        <application_roles/>
         <available_offline>false</available_offline>
-        <data_item/>
         <description/>
+        <dynamic_prefetch_count/>
         <fetch_type>background</fetch_type>
-        <hidden>false</hidden>
+        <hide_filters>false</hide_filters>
         <icon display_value="file-alt">c662a446dbd27f401b5cf7fdbf961945</icon>
         <name>Related List</name>
-        <order>30</order>
-        <parent>a3bf14c2dbd27f401b5cf7fdbf961984</parent>
-        <parent_table>sys_sg_master_item</parent_table>
         <roles_override/>
         <show_count>true</show_count>
         <sys_class_name>sys_sg_related_lists_screen</sys_class_name>

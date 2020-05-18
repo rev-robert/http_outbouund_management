@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="DELETE" field="field" table="x_12232_http_mgmt_outbound_message_exclusion" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>field</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>URL hostname</label>
+            <language>en</language>
+            <name>x_12232_http_mgmt_outbound_message_exclusion</name>
+            <sequence>100</sequence>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2020-05-18 19:34:03</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a3e912ae2ff41010b39c2aa62799b617</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2020-05-18 19:34:03</sys_updated_on>
+            <value>hostname</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>field</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>URL</label>
+            <language>en</language>
+            <name>x_12232_http_mgmt_outbound_message_exclusion</name>
+            <sequence>200</sequence>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2020-05-18 19:34:03</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e3e912ae2ff41010b39c2aa62799b617</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2020-05-18 19:34:03</sys_updated_on>
+            <value>url</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>field</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Request headers</label>
+            <language>en</language>
+            <name>x_12232_http_mgmt_outbound_message_exclusion</name>
+            <sequence>300</sequence>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2020-05-18 19:34:03</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>27e912ae2ff41010b39c2aa62799b617</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2020-05-18 19:34:03</sys_updated_on>
+            <value>request_headers</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>field</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Request body</label>
+            <language>en</language>
+            <name>x_12232_http_mgmt_outbound_message_exclusion</name>
+            <sequence>400</sequence>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2020-05-18 19:34:03</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>67e912ae2ff41010b39c2aa62799b617</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2020-05-18 19:34:03</sys_updated_on>
+            <value>request_body</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>field</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Response status</label>
+            <language>en</language>
+            <name>x_12232_http_mgmt_outbound_message_exclusion</name>
+            <sequence>500</sequence>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2020-05-18 19:34:03</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a7e912ae2ff41010b39c2aa62799b617</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2020-05-18 19:34:03</sys_updated_on>
+            <value>response_status</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>field</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Response headers</label>
+            <language>en</language>
+            <name>x_12232_http_mgmt_outbound_message_exclusion</name>
+            <sequence>600</sequence>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2020-05-18 19:34:03</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e7e912ae2ff41010b39c2aa62799b617</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2020-05-18 19:34:03</sys_updated_on>
+            <value>response_headers</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>field</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Response body</label>
+            <language>en</language>
+            <name>x_12232_http_mgmt_outbound_message_exclusion</name>
+            <sequence>700</sequence>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2020-05-18 19:34:03</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2be912ae2ff41010b39c2aa62799b617</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2020-05-18 19:34:03</sys_updated_on>
+            <value>response_body</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>field</element>
+            <name>x_12232_http_mgmt_outbound_message_exclusion</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>robert.polickoski</sys_created_by>
+            <sys_created_on>2020-05-18 19:34:03</sys_created_on>
+            <sys_id>2fe912ae2ff41010b39c2aa62799b617</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>field</sys_name>
+            <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+            <sys_update_name>sys_choice_x_12232_http_mgmt_outbound_message_exclusion_field</sys_update_name>
+            <sys_updated_by>robert.polickoski</sys_updated_by>
+            <sys_updated_on>2020-05-18 19:34:03</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</application>
+        <file_path/>
+        <instance_id>129f200fdb15768089535d00cf961909</instance_id>
+        <instance_name>dev30806</instance_name>
+        <name>sys_choice_x_12232_http_mgmt_outbound_message_exclusion_field</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_choice action="INSERT_OR_UPDATE" field="field" table="x_12232_http_mgmt_outbound_message_exclusion" version="3"><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>field</element><hint/><inactive>false</inactive><label>URL hostname</label><language>en</language><name>x_12232_http_mgmt_outbound_message_exclusion</name><sequence>100</sequence><sys_created_by>robert.polickoski</sys_created_by><sys_created_on>2020-05-18 19:34:03</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>a3e912ae2ff41010b39c2aa62799b617</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>robert.polickoski</sys_updated_by><sys_updated_on>2020-05-18 19:34:03</sys_updated_on><value>hostname</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>field</element><hint/><inactive>false</inactive><label>URL</label><language>en</language><name>x_12232_http_mgmt_outbound_message_exclusion</name><sequence>200</sequence><sys_created_by>robert.polickoski</sys_created_by><sys_created_on>2020-05-18 19:34:03</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>e3e912ae2ff41010b39c2aa62799b617</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>robert.polickoski</sys_updated_by><sys_updated_on>2020-05-18 19:34:03</sys_updated_on><value>url</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>field</element><hint/><inactive>false</inactive><label>Request headers</label><language>en</language><name>x_12232_http_mgmt_outbound_message_exclusion</name><sequence>300</sequence><sys_created_by>robert.polickoski</sys_created_by><sys_created_on>2020-05-18 19:34:03</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>27e912ae2ff41010b39c2aa62799b617</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>robert.polickoski</sys_updated_by><sys_updated_on>2020-05-18 19:34:03</sys_updated_on><value>request_headers</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>field</element><hint/><inactive>false</inactive><label>Request body</label><language>en</language><name>x_12232_http_mgmt_outbound_message_exclusion</name><sequence>400</sequence><sys_created_by>robert.polickoski</sys_created_by><sys_created_on>2020-05-18 19:34:03</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>67e912ae2ff41010b39c2aa62799b617</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>robert.polickoski</sys_updated_by><sys_updated_on>2020-05-18 19:34:03</sys_updated_on><value>request_body</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>field</element><hint/><inactive>false</inactive><label>Response status</label><language>en</language><name>x_12232_http_mgmt_outbound_message_exclusion</name><sequence>500</sequence><sys_created_by>robert.polickoski</sys_created_by><sys_created_on>2020-05-18 19:34:03</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>a7e912ae2ff41010b39c2aa62799b617</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>robert.polickoski</sys_updated_by><sys_updated_on>2020-05-18 19:34:03</sys_updated_on><value>response_status</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>field</element><hint/><inactive>false</inactive><label>Response headers</label><language>en</language><name>x_12232_http_mgmt_outbound_message_exclusion</name><sequence>600</sequence><sys_created_by>robert.polickoski</sys_created_by><sys_created_on>2020-05-18 19:34:03</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>e7e912ae2ff41010b39c2aa62799b617</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>robert.polickoski</sys_updated_by><sys_updated_on>2020-05-18 19:34:03</sys_updated_on><value>response_headers</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>field</element><hint/><inactive>false</inactive><label>Response body</label><language>en</language><name>x_12232_http_mgmt_outbound_message_exclusion</name><sequence>700</sequence><sys_created_by>robert.polickoski</sys_created_by><sys_created_on>2020-05-18 19:34:03</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>2be912ae2ff41010b39c2aa62799b617</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>robert.polickoski</sys_updated_by><sys_updated_on>2020-05-18 19:34:03</sys_updated_on><value>response_body</value></sys_choice><sys_choice_set action="INSERT_OR_UPDATE"><element>field</element><name>x_12232_http_mgmt_outbound_message_exclusion</name><sys_class_name>sys_choice_set</sys_class_name><sys_created_by>robert.polickoski</sys_created_by><sys_created_on>2020-05-18 19:34:03</sys_created_on><sys_id>2fe912ae2ff41010b39c2aa62799b617</sys_id><sys_mod_count>0</sys_mod_count><sys_name>field</sys_name><sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package><sys_policy/><sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope><sys_update_name>sys_choice_x_12232_http_mgmt_outbound_message_exclusion_field</sys_update_name><sys_updated_by>robert.polickoski</sys_updated_by><sys_updated_on>2020-05-18 19:34:03</sys_updated_on></sys_choice_set></sys_choice></record_update>]]></payload>
+        <payload_hash>1765268958</payload_hash>
+        <record_name>Outbound Message Exclusion.Field</record_name>
+        <reverted_from/>
+        <source>20fc8101db2200107c857fcfbf9619f6</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by/>
+        <sys_created_on>2020-01-23 01:45:32</sys_created_on>
+        <sys_id>0ef9d2ae2ff41010b39c2aa62799b631</sys_id>
+        <sys_mod_count/>
+        <sys_recorded_at>16fd0136e600000000</sys_recorded_at>
+        <sys_updated_by/>
+        <sys_updated_on/>
+        <type>Choice list</type>
+        <update_guid>caf9d2ae1ef41010d05da15c7edfb431</update_guid>
+        <update_guid_history>caf9d2ae1ef41010d05da15c7edfb431:1765268958</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>robert.polickoski</sys_created_by>
+        <sys_created_on>2020-05-18 19:34:13</sys_created_on>
+        <sys_db_object display_value="" name="sys_choice_set">sys_choice_set</sys_db_object>
+        <sys_id>2fe912ae2ff41010b39c2aa62799b617</sys_id>
+        <sys_metadata>2fe912ae2ff41010b39c2aa62799b617</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>field</sys_name>
+        <sys_package display_value="HTTP_Outbound_Management" source="x_12232_http_mgmt">4669c39cdba1b3001b5cf7fdbf9619da</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="HTTP_Outbound_Management">4669c39cdba1b3001b5cf7fdbf9619da</sys_scope>
+        <sys_scope_delete display_value="">5ae2370767944a81b20e20bedc45b581</sys_scope_delete>
+        <sys_update_name>sys_choice_x_12232_http_mgmt_outbound_message_exclusion_field</sys_update_name>
+        <sys_update_version display_value="sys_choice_x_12232_http_mgmt_outbound_message_exclusion_field">0ef9d2ae2ff41010b39c2aa62799b631</sys_update_version>
+        <sys_updated_by>robert.polickoski</sys_updated_by>
+        <sys_updated_on>2020-05-18 19:34:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
